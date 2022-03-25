@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -14,41 +14,41 @@
     <div class="calculator">
     <div class="container">
         <div class="display">
-            <div class="display-1">123 + </div>
-            <div class="display-2">2</div>
+            <div class="display-1">0</div>
+            <div class="display-2"></div>
         </div>
         <div class="buttons">
         <div class="row1 rows">
-            <button class="btn-ac btn">AC</button>
-            <button class="btn-c btn">C</button>
-            <button class="btn-rem btn">%</button>
-            <button class="btn-divide btn">/</button>
+            <button class="btn-ac btn" value="allClear">AC</button>
+            <button class="btn-c btn"value="clear">C</button>
+            <button class="btn-rem  btnOperation  btn"value="reminder">%</button>
+            <button class="btn-divide  btnOperation btn"value="divide">/</button>
 
 
         </div>
 
         <div class="row2 rows">
-            <button class="btn-7 btn">7</button>
-            <button class="btn-8 btn">8</button>
-            <button class="btn-9 btn">9</button>
-            <button class="btn-plus btn">+</button>
+            <button class="btn-7 btnNumber btn"value="7">7</button>
+            <button class="btn-8  btnNumber btn"value="8">8</button>
+            <button class="btn-9 btnNumber btn"value="9">9</button>
+            <button class="btn-plus btnOperation  btn"value="add">+</button>
         </div>
         <div class="row3 rows">
-            <button class="btn-4 btn">4</button>
-            <button class="btn-5 btn">5</button>
-            <button class="btn-6 btn">6</button>
-            <button class="btn-minus btn">-</button>
+            <button class="btn-4 btnNumber btn"value="4">4</button>
+            <button class="btn-5 btnNumber btn"value="5">5</button>
+            <button class="btn-6 btnNumber btn"value="6">6</button>
+            <button class="btn-minus btnOperation  btn"value="subtract">-</button>
         </div>
         <div class="row4 rows">
-            <button class="btn-1 btn">1</button>
-            <button class="btn-2 btn">2</button>
-            <button class="btn-3 btn">3</button>
-            <button class="btn-multiply btn">x</button>
+            <button class="btn-1 btnNumber btn"value="1">1</button>
+            <button class="btn-2  btnNumber btn"value="2">2</button>
+            <button class="btn-3  btnNumber btn"value="3">3</button>
+            <button class="btn-multiply  btnOperation btn"value="multiply">x</button>
         </div>
         <div class="row5 rows">
-            <button class="btn-0 btn">0</button>
-            <button class="btn-dot btn">.</button>
-            <button class="btn-equal btn">=</button>
+            <button class="btn-0 btnNumber btn"value="0">0</button>
+            <button class="btn-dot btnNumber btn"value=".">.</button>
+            <button class="btn-equal btn"value="equalTo">=</button>
             
         </div>
     </div>
