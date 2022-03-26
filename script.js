@@ -5,6 +5,8 @@ const clearButton = document.querySelector(".btn-c");
 const equalButton = document.querySelector(".btn-equal");
 const display1 = document.querySelector(".display-1");
 const display2 = document.querySelector(".display-2");
+const dotButton= document.querySelector(".dotButton");
+
 
 let currentOperand = "";
 let secondOperand = "";
@@ -27,6 +29,30 @@ function allClear() {
     num2 = 0;
     result = 0;
 
+}
+function clear(){
+    if(num2==0 && operator==""){
+        num1=num1.toString();
+        num1= Number(num1.slice(0,-1));
+        if(num1==0){
+            num1="";
+        }
+       currentOperand=num1;
+       display(num1);
+       
+    }else if(num2==0 && operator!=""){
+        operator="";
+        operation="";
+        display(num1,operation);
+    }else{
+        num2= num2.toString();
+        num2 = Number(num2.slice(0,-1));
+        if(num2==0){
+            num2="";
+        }
+        secondOperand=num2;
+        display(num1,operation,num2);
+    }
 }
 
 function append(operand) {
@@ -51,6 +77,12 @@ function displayResult(result) {
     display2.textContent = result;
 }
 
+
+
+
+
+
+
 function add(num1, num2) {
 
     return (num1 + num2);
@@ -71,6 +103,10 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
+    if(num2==0){
+        return "MATH ERROR";
+        
+    }
     return (num1 / num2);
 }
 
@@ -92,7 +128,12 @@ function operate(operator, num1, num2) {
         result = 0;
     }
     num2 = 0;
-    secondOperand="";
+    secondOperand = "";
+
+    //it will only show decimal positions if the result is floating number
+    if (result % 1 !== 0 && Number(result)) {
+        result = result.toFixed(2);
+    }
     return result;
 
 }
@@ -143,6 +184,7 @@ operationButtons.forEach(operationButton => {
 
             num1 = result;
             num2 = 0;
+            display2.textContent="";
             operator = "";
             currentOperand = result;
             operation = operationButton.textContent;
@@ -171,6 +213,21 @@ numberButtons.forEach(numberButton => {
     })
 });
 
+dotButton.addEventListener("click",()=>{
+    if((currentOperand.indexOf(".")==-1 )){
+        num1 = append(dotButton.textContent);
+        console.log(num1);
+        display(currentOperand);
+        console.log((currentOperand.indexOf(".")==-1 )&&(secondOperand.indexOf(".")==-1));
+    }else if((secondOperand.indexOf(".")==-1)){
+        num2 = append2(dotButton.textContent);
+            console.log(num2);
+            console.log(secondOperand);
+            display(currentOperand, operation, secondOperand);
+    }
+})
+
+
 equalButton.addEventListener("click", () => {
     console.log(operator, num1, num2);
     result = operate(operator, num1, num2);
@@ -184,5 +241,5 @@ allClearButton.addEventListener("click", () => {
 
 })
 clearButton.addEventListener("click", () => {
-    allClear();
+    clear();
 })
