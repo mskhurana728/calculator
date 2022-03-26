@@ -185,7 +185,6 @@ operationButtons.forEach(operationButton => {
 
             num1 = result;
             num2 = 0;
-            display2.textContent="";
             operator = "";
             currentOperand = result;
             operation = operationButton.textContent;
@@ -193,6 +192,7 @@ operationButtons.forEach(operationButton => {
             display(currentOperand, operation);
             operator = operationButton.value;
             console.log(operator);
+            display2.textContent="";
 
         }
     })
@@ -209,6 +209,7 @@ numberButtons.forEach(numberButton => {
             num2 = append2(numberButton.textContent);
             console.log(num2);
             console.log(secondOperand);
+            display2.textContent="";
             display(currentOperand, operation, secondOperand);
         }
     })
