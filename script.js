@@ -214,12 +214,12 @@ numberButtons.forEach(numberButton => {
 });
 
 dotButton.addEventListener("click",()=>{
-    if((currentOperand.indexOf(".")==-1 )){
+    if((currentOperand.indexOf(".")==-1 ) ){
         num1 = append(dotButton.textContent);
         console.log(num1);
         display(currentOperand);
         console.log((currentOperand.indexOf(".")==-1 )&&(secondOperand.indexOf(".")==-1));
-    }else if((secondOperand.indexOf(".")==-1)){
+    }else if((operation!=""&& secondOperand.indexOf(".")==-1)){
         num2 = append2(dotButton.textContent);
             console.log(num2);
             console.log(secondOperand);
