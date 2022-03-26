@@ -32,13 +32,13 @@ function allClear() {
 function append(operand) {
 
     currentOperand = currentOperand.toString() + operand.toString();
-    num1 = Number(currentOperand);
+
     return currentOperand;
 }
 function append2(operand) {
 
     secondOperand = secondOperand.toString() + operand.toString();
-    num2 = Number(currentOperand);
+
     return secondOperand;
 }
 
@@ -91,7 +91,8 @@ function operate(operator, num1, num2) {
     } else {
         result = 0;
     }
-
+    num2 = 0;
+    secondOperand="";
     return result;
 
 }
@@ -130,14 +131,32 @@ numberButtons.forEach((numberButton) => {
 operationButtons.forEach(operationButton => {
 
     operationButton.addEventListener("click", () => {
-        operation = operationButton.textContent;
-        console.log(operation);
-        display(currentOperand, operation);
-        operator = operationButton.value;
-        console.log(operator);
+        if (operator == "") {
+            operation = operationButton.textContent;
+            console.log(operation);
+            display(currentOperand, operation);
+            operator = operationButton.value;
+            console.log(operator);
+        } else if (operator != "" && num2 != "") {
+
+            result = operate(operator, num1, num2);
+
+            num1 = result;
+            num2 = 0;
+            operator = "";
+            currentOperand = result;
+            operation = operationButton.textContent;
+            console.log(operation);
+            display(currentOperand, operation);
+            operator = operationButton.value;
+            console.log(operator);
+
+        }
     })
 
 });
+
+
 
 numberButtons.forEach(numberButton => {
 
@@ -164,6 +183,6 @@ allClearButton.addEventListener("click", () => {
     allClear();
 
 })
-clearButton.addEventListener("click",()=>{
+clearButton.addEventListener("click", () => {
     allClear();
 })
