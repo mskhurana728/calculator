@@ -56,16 +56,17 @@ function clear(){
 }
 
 function append(operand) {
-
+if(currentOperand.length<12){
     currentOperand = currentOperand.toString() + operand.toString();
-
-    return currentOperand;
 }
+return currentOperand;
+}
+
 function append2(operand) {
-
+if(secondOperand.length<12){
     secondOperand = secondOperand.toString() + operand.toString();
-
-    return secondOperand;
+}
+return secondOperand;
 }
 
 function display(operand, operation = "", operand2 = "") {
